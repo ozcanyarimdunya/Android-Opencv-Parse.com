@@ -1,3 +1,4 @@
 # android_parsecom_opencv
-Inıtıal commit
-Tasarım süreçleri projesi 
+
+#Tasarım süreçleri projesi 
+Proje tasarım süreçleri dersi için yapılmıştır .
