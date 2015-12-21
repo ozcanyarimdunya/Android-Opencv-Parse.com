@@ -1,4 +1,6 @@
-# android_parsecom_opencv
+# Dikkat
+
+Eğer proje adından kaynaklanan bir sorun çıkarsa proje adını  Design8december3  olarak değiştirin ..
 
 #Tasarım süreçleri projesi 
 Proje tasarım süreçleri dersi için yapılmıştır .
