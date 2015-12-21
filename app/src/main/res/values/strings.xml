@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Mobil Ben Takip Uygulaması</string>
+    <string name="help_menu">Help</string>
+    <string name="help_app">Help</string>
+    <string name="logout_app">Logout</string>
+    <string name="btn_login_giris">Giriş yap</string>
+    <string name="btn_login_kaydol">Kaydol</string>
+    <string name="btn_register_kaydol">Kaydol</string>
+    <string name="btn_start">Başla</string>
+    <string name="btn_upload_resim">Yükle</string>
+    <string name="btn_resim">Analiz için gönder</string>
+</resources>
