@@ -5,7 +5,7 @@ Proje tasarım süreçleri dersi için yapılmıştır .
 
 #Parse
 
-http://parse.com
+Homepage: http://parse.com
 
 #Opencv
 Resources
