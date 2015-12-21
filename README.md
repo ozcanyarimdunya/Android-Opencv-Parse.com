@@ -2,6 +2,11 @@
 
 #Tasarım süreçleri projesi 
 Proje tasarım süreçleri dersi için yapılmıştır .
+
+#Parse
+
+http://parse.com
+
 #Opencv
 Resources
 
