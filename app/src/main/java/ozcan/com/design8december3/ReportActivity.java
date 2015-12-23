@@ -70,7 +70,6 @@ public class ReportActivity extends AppCompatActivity {
         mImage = (ImageView) findViewById(R.id.imageView_report_result);
         Button btn_resim_al = (Button) findViewById(R.id.btn_resim);
 
-        /******************************************************************************************/
         btn_resim_al.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,8 +110,6 @@ public class ReportActivity extends AppCompatActivity {
                 });
             }
         });
-        /******************************************************************************************/
-
     }
     
     protected void Upload(Bitmap bmp){
@@ -141,15 +138,12 @@ public class ReportActivity extends AppCompatActivity {
         Mat edgeMat = new Mat();
         Utils.bitmapToMat(bmpEdge, edgeMat);
 
-        /**Convert to gray image**/
         Mat edgeGray = new Mat();
         Imgproc.cvtColor(edgeMat,edgeGray,Imgproc.COLOR_BGR2GRAY,1);
-
-        /**Do canny**/
+        
         Mat outCannyMat = new Mat();
         Imgproc.Canny(edgeGray,outCannyMat,80,100,3,false);
 
-        /**Output**/
         Bitmap btmp;
         Mat mRgb = new Mat();
         try {
@@ -164,7 +158,6 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     protected void ToGrayScale(Bitmap bmpGrayScale){
-        /*****************/
          Mat mat = new Mat(bmpGrayScale.getWidth(), bmpGrayScale.getHeight(), CvType.CV_8UC1);
          Mat grayMat = new Mat(bmpGrayScale.getWidth(), bmpGrayScale.getHeight(), CvType.CV_8UC1);
          Utils.bitmapToMat(bmpGrayScale, mat);
@@ -182,7 +175,6 @@ public class ReportActivity extends AppCompatActivity {
          catch (CvException exception){
          Toast.makeText(ReportActivity.this, "Hata : "+exception.getMessage(), Toast.LENGTH_SHORT).show();
          }
-         /*****************/
     }
 
     @Override
