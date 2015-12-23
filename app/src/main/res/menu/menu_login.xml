@@ -5,5 +5,5 @@
         android:title="@string/help_menu"
         android:id="@+id/login_help"
         app:showAsAction="always"
-        />
+        android:icon="@android:drawable/ic_menu_help"/>
 </menu>

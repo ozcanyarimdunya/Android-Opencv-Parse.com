@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.LogOutCallback;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 
 public class BodySelectionBackActivity extends AppCompatActivity {
@@ -61,8 +63,18 @@ public class BodySelectionBackActivity extends AppCompatActivity {
                 Toast.makeText(BodySelectionBackActivity.this, "Help butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.logout_app:
-                //ParseUser.logOut();
-                Toast.makeText(BodySelectionBackActivity.this, "Logout sonra yapılacak", Toast.LENGTH_SHORT).show();
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null) {
+                            Toast.makeText(BodySelectionBackActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(BodySelectionBackActivity.this, LoginActivity.class));
+                        }
+                        else {
+                            Toast.makeText(BodySelectionBackActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
                 break;
         }
         return super.onOptionsItemSelected(item);

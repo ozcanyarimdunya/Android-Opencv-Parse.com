@@ -11,6 +11,7 @@
         android:required="true" />
 
     <application
+        android:name=".ForParseInit"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,7 +27,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".BodySelectionActivity" />
         <activity android:name=".CameraActivity" />
-        <activity android:name=".ReportActivity"></activity>
+        <activity android:name=".ReportActivity"/>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -35,7 +36,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".BodySelectionBackActivity"></activity>
+        <activity android:name=".BodySelectionBackActivity"/>
     </application>
 
 </manifest>

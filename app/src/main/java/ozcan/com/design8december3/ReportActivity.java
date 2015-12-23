@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import com.parse.GetCallback;
 import com.parse.GetDataCallback;
+import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -35,7 +38,7 @@ import java.io.ByteArrayOutputStream;
 public class ReportActivity extends AppCompatActivity {
 
     private ImageView mImage;
-    private Bitmap bitmap;
+    private Bitmap    bitmap;
 
     private BaseLoaderCallback mOpenCVCallBack = new BaseLoaderCallback(this) {
         @Override
@@ -180,5 +183,36 @@ public class ReportActivity extends AppCompatActivity {
          Toast.makeText(ReportActivity.this, "Hata : "+exception.getMessage(), Toast.LENGTH_SHORT).show();
          }
          /*****************/
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_app,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.help_app:
+                Toast.makeText(ReportActivity.this, "Help butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
+                break;
+            ///Raporlama kısmında yapmasının pek bir anlamı yok
+            /*case R.id.logout_app:
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null) {
+                            Toast.makeText(ReportActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(ReportActivity.this, LoginActivity.class));
+                        }
+                        else {
+                            Toast.makeText(ReportActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                break;*/
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

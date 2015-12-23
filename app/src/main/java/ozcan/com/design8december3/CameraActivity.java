@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.parse.LogOutCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -35,12 +37,10 @@ import java.util.Locale;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private Button btn_upload,btn_start;
     private ImageView picture;
-    private Bitmap my_bitmap;
     private ByteArrayOutputStream stream = new ByteArrayOutputStream();
     private Uri fileUri;
-    private static final String IMAGE_DIRECTORY_NAME = "Hello Camera";
+    private static final String IMAGE_DIRECTORY_NAME = "Resimlerim";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +49,13 @@ public class CameraActivity extends AppCompatActivity {
         ResimYadaGaleri();
         picture = (ImageView)findViewById(R.id.imageView_Ben_Son);
 
-        /*if(ParseUser.getCurrentUser() == null){
-            Intent intent = new Intent(MainCamera.this,LoginActivity.class);
+        if(ParseUser.getCurrentUser() == null){
+            Intent intent = new Intent(CameraActivity.this,LoginActivity.class);
             startActivity(intent);
-        }*/
+        }
 
 
-        btn_upload = (Button)findViewById(R.id.btn_upload_resim);
+        Button btn_upload = (Button) findViewById(R.id.btn_upload_resim);
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void ResimYadaGaleri(){
-        btn_start=(Button)findViewById(R.id.btn_start);
+        Button btn_start = (Button) findViewById(R.id.btn_start);
         if(!getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
             Toast.makeText(CameraActivity.this, "Kamera bulunamadı !!", Toast.LENGTH_SHORT).show();
         }
@@ -82,7 +82,7 @@ public class CameraActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent open_camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         fileUri = getOutputMediaFileUri(0);
-                        open_camera.putExtra(MediaStore.EXTRA_OUTPUT,fileUri);
+                        open_camera.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                         startActivityForResult(open_camera, 0);
                     }
                 });
@@ -168,13 +168,8 @@ public class CameraActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
             case 0: //camera opened
-                if (requestCode == 0 && resultCode==RESULT_OK) {
-                    /*my_bitmap  = (Bitmap) data.getExtras().get("data");
-                    my_bitmap = Bitmap.createScaledBitmap(my_bitmap,600,600,true);
-                   if (my_bitmap != null) {
-                       my_bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    }
-                    picture.setImageBitmap(my_bitmap);*/
+                Bitmap my_bitmap;
+                if (resultCode == RESULT_OK) {
 
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inSampleSize = 0;
@@ -218,9 +213,21 @@ public class CameraActivity extends AppCompatActivity {
             case R.id.help_app:
                 Toast.makeText(CameraActivity.this, "Help butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.logout_app:
-                Toast.makeText(CameraActivity.this, "Logout butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
-                break;
+            ///Kamera kısmında çıkış yapması mantıksız
+            /*case R.id.logout_app:
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null) {
+                            Toast.makeText(CameraActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(CameraActivity.this, LoginActivity.class));
+                        }
+                        else {
+                            Toast.makeText(CameraActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                break;*/
         }
         return super.onOptionsItemSelected(item);
     }

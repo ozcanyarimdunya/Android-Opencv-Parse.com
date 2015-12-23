@@ -18,7 +18,6 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button login,register;
     private EditText username,password;
 
     @Override
@@ -26,12 +25,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Parse.initialize(this, "Your_App_ID", "Your_Client_ID");
-
         username = (EditText)findViewById(R.id.eT_login_kadi);
         password = (EditText)findViewById(R.id.eT_login_sifre);
-        login = (Button)findViewById(R.id.btn_login_giris);
-        register = (Button)findViewById(R.id.btn_login_kaydol);
+        Button login = (Button) findViewById(R.id.btn_login_giris);
+        Button register = (Button) findViewById(R.id.btn_login_kaydol);
 
         if(ParseUser.getCurrentUser() != null){
             Intent intent = new Intent(LoginActivity.this,BodySelectionActivity.class);
@@ -44,11 +41,10 @@ public class LoginActivity extends AppCompatActivity {
                 ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
                     @Override
                     public void done(ParseUser parseUser, ParseException e) {
-                        if (e != null){
+                        if (e != null) {
                             Toast.makeText(LoginActivity.this, "Kullanıcı adı veya şifre yanlış" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            Intent intent = new Intent(LoginActivity.this,BodySelectionActivity.class);
+                        } else {
+                            Intent intent = new Intent(LoginActivity.this, BodySelectionActivity.class);
                             startActivity(intent);
                         }
                     }
@@ -84,4 +80,5 @@ public class LoginActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

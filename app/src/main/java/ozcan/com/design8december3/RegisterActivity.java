@@ -17,7 +17,7 @@ import com.parse.SignUpCallback;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText username , email,password;
+    private EditText username, email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
                 user.setEmail(email.getText().toString());
                 user.setPassword(password.getText().toString());
 
-                if (username.getText().toString().trim() == null || email.getText().toString().trim() == null || password.getText().toString().trim() == null) {
+                if ((username.getText() == null) || (email.getText() == null) || (password.getText() == null)) {
                     Toast.makeText(RegisterActivity.this, "Lütfen boş alanları doldurunuz !!", Toast.LENGTH_SHORT).show();
                 } else {
                     user.signUpInBackground(new SignUpCallback() {
