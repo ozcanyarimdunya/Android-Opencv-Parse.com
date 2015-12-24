@@ -119,7 +119,7 @@ public class CameraActivity extends AppCompatActivity {
         File mediaFile;
         if (type == 0) {
             mediaFile = new File(mediaStorageDir.getPath() + File.separator
-                    + "IMG_" + timeStamp + ".png");
+                    + "IMG_" + timeStamp + ".PNG");
         }else {
             return null;
         }
@@ -176,7 +176,6 @@ public class CameraActivity extends AppCompatActivity {
                     }
                     picture.setImageBitmap(my_bitmap);
                 }
-
             case 1: //chosen from gallery
                 if(requestCode == 1 && resultCode == RESULT_OK && null!=data){
                     Uri selectedImage = data.getData();

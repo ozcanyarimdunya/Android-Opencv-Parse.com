@@ -1,11 +1,9 @@
 package ozcan.com.design8december3;
 
 import android.content.Intent;
-import android.content.SyncAdapterType;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
@@ -30,12 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText)findViewById(R.id.eT_login_sifre);
         Button login = (Button) findViewById(R.id.btn_login_giris);
         Button register = (Button) findViewById(R.id.btn_login_kaydol);
-
-        ///Eğer kullanıcı önceden girş yapmışsa bu ekran hiç gösterilmesin
-        /*if(ParseUser.getCurrentUser().getUsername() != null){
-            Intent intent = new Intent(LoginActivity.this,BodySelectionActivity.class);
-            startActivity(intent);
-        }*/
 
         ///Giriş yap butonu
         login.setOnClickListener(new View.OnClickListener() {
@@ -95,9 +86,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        ///Bu önlem kayıt ekranına tıklandı diyelim
-        ///kayıt ekranından bu sayfaya yönlendirildiğinde
-        ///geri tıklandığında tekrar kayıt ekranına gitme diye
         System.exit(0);
     }
 }

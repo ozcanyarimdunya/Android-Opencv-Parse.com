@@ -22,9 +22,10 @@ public class BodySelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_selection);
 
-        if(ParseUser.getCurrentUser().getUsername() == null){
+        if(ParseUser.getCurrentUser() == null){
             Intent intent = new Intent(BodySelectionActivity.this,LoginActivity.class);
             startActivity(intent);
+            System.exit(0);
         }
 
         /****/
@@ -82,9 +83,9 @@ public class BodySelectionActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+/*    @Override
     public void onBackPressed() {
         super.onBackPressed();
         System.exit(0);
-    }
+    }*/
 }

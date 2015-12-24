@@ -22,7 +22,7 @@ public class BodySelectionBackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_selection_back);
 
-        if(ParseUser.getCurrentUser().getUsername() == null){
+        if(ParseUser.getCurrentUser() == null){
             Intent intent = new Intent(BodySelectionBackActivity.this,LoginActivity.class);
             startActivity(intent);
         }

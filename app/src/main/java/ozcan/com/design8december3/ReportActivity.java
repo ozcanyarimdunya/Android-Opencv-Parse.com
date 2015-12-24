@@ -55,12 +55,12 @@ public class ReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report2);
+        setContentView(R.layout.activity_report);
 
         Intent intent = getIntent();
         final String object_id = intent.getStringExtra("resim");
 
-        if(ParseUser.getCurrentUser().getUsername() == null){
+        if(ParseUser.getCurrentUser() == null){
             startActivity(new Intent(ReportActivity.this,LoginActivity.class));
         }
 

@@ -17,7 +17,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textSize="10dp"
-        android:background="#000000" />
+        android:background="#ffffff" />
 
     <ImageView
         android:layout_width="match_parent"
