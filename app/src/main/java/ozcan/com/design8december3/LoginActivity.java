@@ -1,6 +1,7 @@
 package ozcan.com.design8december3;
 
 import android.content.Intent;
+import android.content.SyncAdapterType;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,7 +19,7 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText username,password;
+    private EditText    username,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +31,29 @@ public class LoginActivity extends AppCompatActivity {
         Button login = (Button) findViewById(R.id.btn_login_giris);
         Button register = (Button) findViewById(R.id.btn_login_kaydol);
 
-        if(ParseUser.getCurrentUser() != null){
+        ///Eğer kullanıcı önceden girş yapmışsa bu ekran hiç gösterilmesin
+        /*if(ParseUser.getCurrentUser().getUsername() != null){
             Intent intent = new Intent(LoginActivity.this,BodySelectionActivity.class);
             startActivity(intent);
-        }
+        }*/
 
+        ///Giriş yap butonu
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ///Arka planda girş yap parse.com a
                 ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
                     @Override
                     public void done(ParseUser parseUser, ParseException e) {
+                        /// eğer bir hata varsa
                         if (e != null) {
                             Toast.makeText(LoginActivity.this, "Kullanıcı adı veya şifre yanlış" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         } else {
                             Intent intent = new Intent(LoginActivity.this, BodySelectionActivity.class);
                             startActivity(intent);
+                            ///Giriş yaptıktan sonra bu ekranı kapat
+                            ///Zaten artık geri dönme gibi bir durum yok
+                            System.exit(0);
                         }
                     }
                 });
@@ -58,6 +66,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+                ///Kayıt yapma ekranını aç
+                ///Bu ekranı kapat artık
+                ///System.exit(0);
             }
         });
 
@@ -66,8 +77,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_login,menu);
+        ///Menü tanımlama
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -81,4 +92,12 @@ public class LoginActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        ///Bu önlem kayıt ekranına tıklandı diyelim
+        ///kayıt ekranından bu sayfaya yönlendirildiğinde
+        ///geri tıklandığında tekrar kayıt ekranına gitme diye
+        System.exit(0);
+    }
 }

@@ -22,7 +22,7 @@ public class BodySelectionBackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_selection_back);
 
-        if(ParseUser.getCurrentUser() == null){
+        if(ParseUser.getCurrentUser().getUsername() == null){
             Intent intent = new Intent(BodySelectionBackActivity.this,LoginActivity.class);
             startActivity(intent);
         }
@@ -38,6 +38,7 @@ public class BodySelectionBackActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BodySelectionBackActivity.this, BodySelectionActivity.class);
                 startActivity(intent);
+                ///System.exit(0);
             }
         });
         ImageView img = (ImageView) findViewById(R.id.imageView_body);
@@ -46,6 +47,7 @@ public class BodySelectionBackActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BodySelectionBackActivity.this, CameraActivity.class);
                 startActivity(intent);
+                System.exit(0);
             }
         });
     }
@@ -69,6 +71,7 @@ public class BodySelectionBackActivity extends AppCompatActivity {
                         if(e == null) {
                             Toast.makeText(BodySelectionBackActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(BodySelectionBackActivity.this, LoginActivity.class));
+                            System.exit(0);
                         }
                         else {
                             Toast.makeText(BodySelectionBackActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -78,5 +81,12 @@ public class BodySelectionBackActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, BodySelectionActivity.class));
+        System.exit(0);
     }
 }

@@ -14,7 +14,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.parse.LogOutCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -37,10 +35,10 @@ import java.util.Locale;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private ImageView picture;
-    private ByteArrayOutputStream stream = new ByteArrayOutputStream();
-    private Uri fileUri;
-    private static final String IMAGE_DIRECTORY_NAME = "Resimlerim";
+    private ImageView                   picture;
+    private ByteArrayOutputStream       stream = new ByteArrayOutputStream();
+    private Uri                         fileUri;
+    private static final String         IMAGE_DIRECTORY_NAME = "Resimlerim";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +128,6 @@ public class CameraActivity extends AppCompatActivity {
 
     private void Upload(){
         try {
-
             if (stream.toByteArray().length==0){
                 Toast.makeText(CameraActivity.this, "Resim boş olamaz !!", Toast.LENGTH_SHORT).show();
             }
@@ -150,6 +147,7 @@ public class CameraActivity extends AppCompatActivity {
                             Intent intent = new Intent(CameraActivity.this, ReportActivity.class);
                             intent.putExtra("resim",img_upload.getObjectId());
                             startActivity(intent);
+                            System.exit(0);
                         } else {
                             Toast.makeText(getApplicationContext(), "Failed to upload image " + e.getMessage(), Toast.LENGTH_LONG).show();
                         }
@@ -186,6 +184,7 @@ public class CameraActivity extends AppCompatActivity {
                     String[] filePathColumn = { MediaStore.Images.Media.DATA };
                     Cursor cursor = getContentResolver().query(selectedImage,
                             filePathColumn, null, null, null);
+                    assert cursor != null;
                     cursor.moveToFirst();
 
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -202,8 +201,7 @@ public class CameraActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_app, menu);
+        getMenuInflater().inflate(R.menu.menu_app, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -213,22 +211,30 @@ public class CameraActivity extends AppCompatActivity {
             case R.id.help_app:
                 Toast.makeText(CameraActivity.this, "Help butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
                 break;
-            ///Kamera kısmında çıkış yapması mantıksız
-            /*case R.id.logout_app:
+            ///Kamera kısmında çıkış yapması mantıksız ama olsun
+            case R.id.logout_app:
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
                     public void done(ParseException e) {
                         if(e == null) {
                             Toast.makeText(CameraActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(CameraActivity.this, LoginActivity.class));
+                            System.exit(0);
                         }
                         else {
                             Toast.makeText(CameraActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-                break;*/
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, BodySelectionActivity.class));
+        System.exit(0);
     }
 }

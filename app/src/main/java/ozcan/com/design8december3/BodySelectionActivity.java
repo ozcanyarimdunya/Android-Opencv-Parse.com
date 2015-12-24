@@ -22,7 +22,7 @@ public class BodySelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_selection);
 
-        if(ParseUser.getCurrentUser() == null){
+        if(ParseUser.getCurrentUser().getUsername() == null){
             Intent intent = new Intent(BodySelectionActivity.this,LoginActivity.class);
             startActivity(intent);
         }
@@ -38,6 +38,7 @@ public class BodySelectionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BodySelectionActivity.this, BodySelectionBackActivity.class);
                 startActivity(intent);
+                ///System.exit(0);
             }
         });
         ImageView img = (ImageView) findViewById(R.id.imageView_body);
@@ -46,6 +47,7 @@ public class BodySelectionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BodySelectionActivity.this, CameraActivity.class);
                 startActivity(intent);
+                System.exit(0);
             }
         });
     }
@@ -69,6 +71,7 @@ public class BodySelectionActivity extends AppCompatActivity {
                         if (e == null) {
                             Toast.makeText(BodySelectionActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(BodySelectionActivity.this, LoginActivity.class));
+                            System.exit(0);
                         } else {
                             Toast.makeText(BodySelectionActivity.this, "Çıkış yapılamadı! " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -77,5 +80,11 @@ public class BodySelectionActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
     }
 }
