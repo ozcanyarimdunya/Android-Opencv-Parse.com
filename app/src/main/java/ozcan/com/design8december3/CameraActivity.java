@@ -147,7 +147,6 @@ public class CameraActivity extends AppCompatActivity {
                             Intent intent = new Intent(CameraActivity.this, ReportActivity.class);
                             intent.putExtra("resim",img_upload.getObjectId());
                             startActivity(intent);
-                            System.exit(0);
                         } else {
                             Toast.makeText(getApplicationContext(), "Failed to upload image " + e.getMessage(), Toast.LENGTH_LONG).show();
                         }
@@ -216,8 +215,8 @@ public class CameraActivity extends AppCompatActivity {
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
                     public void done(ParseException e) {
+                        Toast.makeText(CameraActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                         if(e == null) {
-                            Toast.makeText(CameraActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(CameraActivity.this, LoginActivity.class));
                             System.exit(0);
                         }

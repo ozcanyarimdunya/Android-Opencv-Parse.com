@@ -179,6 +179,5 @@ public class ReportActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(this, CameraActivity.class));
-        System.exit(0);
     }
 }
