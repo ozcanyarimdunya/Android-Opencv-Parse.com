@@ -7,7 +7,7 @@ public class ForParseInit extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        Parse.initialize(this, "K6ffPti3ffGlJ8Y5wV8sdad8K9Ib9VKHWlOn25Xx", "xuJrppmOc3OScLT8SYzjc70pkTMgOGTC8MGWdNF3");
+        Parse.initialize(this, "rd5cxc2U7vDFLQTFGAFwBALQjjAyEYQZjiSFlXjn", "AtSeSCxuLzwf8GzL4N2Lu96Vq6Iy9Q4ExWJEe90I");
     }
 
 }
