@@ -18,9 +18,11 @@ Uygulamanın çalışma şekli
     -Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
 
 ***Ana Menü***
+    
     -Benin vucutta bulunduğu kısım seçilir
   
 ***Galeriden resim yükleme veya kameradan çekip yükleme***
+    
     -Benin resmi Parse.com da image_upload tablosuna kaydedilir
   
 ***Resmi analiz etme (Gray Scale ve Edge Detection)***
