@@ -20,13 +20,14 @@
         android:layout_above="@+id/btn_arkaya_gec" />
 
     <Button
-        android:layout_width="60dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:id="@+id/btn_arkaya_gec"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:text="Arkaya Geç" />
+        android:text="Arkaya Geç"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"

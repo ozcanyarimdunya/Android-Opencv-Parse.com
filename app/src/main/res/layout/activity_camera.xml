@@ -11,26 +11,46 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:text="@string/btn_start"
-        android:id="@+id/btn_start"
+        android:layout_height="60dp"
+        android:text="Galleriden seç"
+        android:id="@+id/btn_galeri"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toStartOf="@+id/textView2"
+        android:textColor="#000000" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:text="@string/btn_upload_resim"
         android:id="@+id/btn_upload_resim"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#000000" />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:id="@+id/imageView_Ben_Son"
-        android:layout_below="@+id/btn_start"
+        android:layout_below="@+id/btn_galeri"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_upload_resim" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="Kamerayı aç"
+        android:id="@+id/btn_camera"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView2"
+        android:textColor="#000000" />
 </RelativeLayout>

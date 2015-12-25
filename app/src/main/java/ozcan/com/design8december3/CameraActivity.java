@@ -64,38 +64,30 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void ResimYadaGaleri(){
-        Button btn_start = (Button) findViewById(R.id.btn_start);
+
+        Button btn_camera = (Button)findViewById(R.id.btn_camera);
+        Button btn_galeri = (Button)findViewById(R.id.btn_galeri);
+
         if(!getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
             Toast.makeText(CameraActivity.this, "Kamera bulunamadı !!", Toast.LENGTH_SHORT).show();
         }
-        btn_start.setOnClickListener(new View.OnClickListener() {
+
+        btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*************************************/
-                AlertDialog.Builder builder = new AlertDialog.Builder(CameraActivity.this);
-                builder.setTitle("Select one ?");
+                Intent open_camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                fileUri = getOutputMediaFileUri(0);
+                open_camera.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+                startActivityForResult(open_camera, 0);
+            }
+        });
 
-                builder.setPositiveButton("Open Camera", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent open_camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        fileUri = getOutputMediaFileUri(0);
-                        open_camera.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-                        startActivityForResult(open_camera, 0);
-                    }
-                });
-
-                builder.setNegativeButton("Select from gallery", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent pick_photo = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        pick_photo.setType("image/*");
-                        startActivityForResult(pick_photo, 1);
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                /*************************************/
+        btn_galeri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pick_photo = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                pick_photo.setType("image/*");
+                startActivityForResult(pick_photo, 1);
             }
         });
 

@@ -7,6 +7,5 @@
     <string name="btn_login_kaydol">Kaydol</string>
     <string name="btn_register_kaydol">Kaydol</string>
     <string name="btn_start">Başla</string>
-    <string name="btn_upload_resim">Yükle</string>
-    <string name="btn_resim">Analiz için gönder</string>
+    <string name="btn_upload_resim">Analiz için gönder</string>
 </resources>

@@ -40,15 +40,17 @@
         android:layout_below="@+id/eT_login_sifre"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="@string/btn_login_kaydol"
         android:id="@+id/btn_login_kaydol"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
         android:layout_below="@+id/btn_login_giris"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:textStyle="bold"/>
+        android:layout_alignParentStart="true"
+        android:textColor="#000000" />
 </RelativeLayout>
