@@ -8,7 +8,7 @@ Proje tasarım süreçleri dersi için yapılmıştır .
 #Mobil ben takip uygulaması
 Uygulamanın çalışma şekli
 
-*Yeni kullanıcı ekleme
+***Yeni kullanıcı ekleme
   ***Parse.com da User tablosuna yeni kullanıcı eklenir
   
 *Giriş yapma
