@@ -25,7 +25,7 @@ public class BodySelectionBackActivity extends AppCompatActivity {
         TextView txt = (TextView)findViewById(R.id.txt_hosgeldin);
 
         if(ParseUser.getCurrentUser() == null){
-            txt.setText("Hoşgeldiniz devam edebilmek için giriş yapın!");
+            txt.setText("Hoşgeldiniz .. Devam edebilmek için lütfen giriş yapın!");
         }
         else {
             txt.setText("Hoşgeldin " + ParseUser.getCurrentUser().getUsername() + " !");
