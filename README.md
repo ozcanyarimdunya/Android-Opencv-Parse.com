@@ -8,22 +8,23 @@ Proje tasarım süreçleri dersi için yapılmıştır .
 #Mobil ben takip uygulaması
 Uygulamanın çalışma şekli
 
-Yeni kullanıcı ekleme*
- Parse.com da User tablosuna yeni kullanıcı eklenir*
+*Yeni kullanıcı ekleme
+ 
+ Parse.com da User tablosuna yeni kullanıcı eklenir
   
 *Giriş yapma
   
   *Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
   
-Ana Menü
+*Ana Menü
   
   Benin vucutta bulunduğu kısım seçilir
   
-Galeriden resim yükleme veya kameradan çekip yükleme
+*Galeriden resim yükleme veya kameradan çekip yükleme
   
   Benin resmi Parse.com da image_upload tablosuna kaydedilir
   
-Resmi analiz etme (Gray Scale ve Edge Detection)
+*Resmi analiz etme (Gray Scale ve Edge Detection)
   
   Parse.com dan çekilen resim alınır ve işlenir
   
