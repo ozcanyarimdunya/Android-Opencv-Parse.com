@@ -9,7 +9,7 @@ Proje tasarım süreçleri dersi için yapılmıştır .
 Uygulamanın çalışma şekli
 
 *Yeni kullanıcı ekleme
-  **Parse.com da User tablosuna yeni kullanıcı eklenir
+  ***Parse.com da User tablosuna yeni kullanıcı eklenir
   
 *Giriş yapma
   *Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
