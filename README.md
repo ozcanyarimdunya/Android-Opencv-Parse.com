@@ -14,21 +14,21 @@ Uygulamanın çalışma şekli
   
 Giriş yapma
   
- Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
+    Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
 
 Ana Menü
   
-  Benin vucutta bulunduğu kısım seçilir
+    Benin vucutta bulunduğu kısım seçilir
   
 Galeriden resim yükleme veya kameradan çekip yükleme
   
-  Benin resmi Parse.com da image_upload tablosuna kaydedilir
+    Benin resmi Parse.com da image_upload tablosuna kaydedilir
   
 Resmi analiz etme (Gray Scale ve Edge Detection)
   
-  Parse.com dan çekilen resim alınır ve işlenir
+    Parse.com dan çekilen resim alınır ve işlenir
   
-  İşlenen resimler de ImageResultAfterOpencv tablosuna kaydedilir
+    İşlenen resimler de ImageResultAfterOpencv tablosuna kaydedilir
 
 
 
