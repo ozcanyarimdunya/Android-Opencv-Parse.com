@@ -32,8 +32,6 @@ Uygulamanın çalışma şekli
     -İşlenen resimler de ImageResultAfterOpencv tablosuna kaydedilir
 
 
-
-
 #Parse
 
 Homepage: http://parse.com
