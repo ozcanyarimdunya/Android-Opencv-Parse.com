@@ -35,7 +35,7 @@ Uygulamanın çalışma şekli
 
 #Android Studio
 
-Dowload Page: http://developer.android.com/sdk/index.html
+* Dowload Page: http://developer.android.com/sdk/index.html
 
 #Parse
 
