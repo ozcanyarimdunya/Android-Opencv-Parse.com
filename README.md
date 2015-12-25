@@ -1,6 +1,6 @@
 # Dikkat
 
-Eğer proje adından kaynaklanan bir sorun çıkarsa proje adını  Design8december3  olarak değiştirin ..
+Eğer proje adından kaynaklanan bir sorun çıkarsa proje adını  ***Design8december3***  olarak değiştirin ..
 
 #Tasarım süreçleri projesi 
 Proje tasarım süreçleri dersi için yapılmıştır .
@@ -12,23 +12,23 @@ Uygulamanın çalışma şekli
  
     Parse.com da User tablosuna yeni kullanıcı eklenir
   
-Giriş yapma
+***Giriş yapma***
   
     Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
 
-Ana Menü
+***Ana Menü***
   
     Benin vucutta bulunduğu kısım seçilir
   
-Galeriden resim yükleme veya kameradan çekip yükleme
+***Galeriden resim yükleme veya kameradan çekip yükleme***
   
     Benin resmi Parse.com da image_upload tablosuna kaydedilir
   
-Resmi analiz etme (Gray Scale ve Edge Detection)
+***Resmi analiz etme (Gray Scale ve Edge Detection)***
   
-    Parse.com dan çekilen resim alınır ve işlenir
+    -Parse.com dan çekilen resim alınır ve işlenir
   
-    İşlenen resimler de ImageResultAfterOpencv tablosuna kaydedilir
+    -İşlenen resimler de ImageResultAfterOpencv tablosuna kaydedilir
 
 
 
