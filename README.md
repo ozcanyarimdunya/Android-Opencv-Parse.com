@@ -8,11 +8,11 @@ Proje tasarım süreçleri dersi için yapılmıştır .
 #Mobil ben takip uygulaması
 Uygulamanın çalışma şekli
 
-Yeni kullanıcı ekleme
-  Parse.com da User tablosuna yeni kullanıcı eklenir
+*Yeni kullanıcı ekleme
+  *Parse.com da User tablosuna yeni kullanıcı eklenir
   
-Giriş yapma
-  Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
+*Giriş yapma
+  *Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
   
 Ana Menü
   Benin vucutta bulunduğu kısım seçilir
