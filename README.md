@@ -6,7 +6,8 @@ Eğer proje adından kaynaklanan bir sorun çıkarsa proje adını  ***Design8de
 Proje tasarım süreçleri dersi için yapılmıştır .
 
 #Mobil ben takip uygulaması
-1.Uygulamanın çalışma şekli
+***Uygulamanın çalışma şekli
+
 
 ***Yeni kullanıcı ekleme***
  
