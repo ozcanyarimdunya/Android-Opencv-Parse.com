@@ -82,10 +82,4 @@ public class BodySelectionActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-/*    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        System.exit(0);
-    }*/
 }
