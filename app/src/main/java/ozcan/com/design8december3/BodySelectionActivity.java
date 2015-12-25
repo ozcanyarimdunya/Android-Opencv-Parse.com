@@ -22,16 +22,14 @@ public class BodySelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_selection);
 
-        if(ParseUser.getCurrentUser() == null){
-            Intent intent = new Intent(BodySelectionActivity.this,LoginActivity.class);
-            startActivity(intent);
-            System.exit(0);
-        }
-
-        /****/
         TextView txt = (TextView)findViewById(R.id.txt_hosgeldin);
-        txt.setText("Hoşgeldin "+ParseUser.getCurrentUser().getUsername()+" !");
-        /****/
+
+        if(ParseUser.getCurrentUser() == null){
+            txt.setText("Hoşgeldiniz devam edebilmek için giriş yapın!");
+        }
+        else {
+            txt.setText("Hoşgeldin " + ParseUser.getCurrentUser().getUsername() + " !");
+        }
 
         Button arkaya_gec = (Button) findViewById(R.id.btn_arkaya_gec);
         arkaya_gec.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +44,12 @@ public class BodySelectionActivity extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(ParseUser.getCurrentUser() == null){
+                    Intent intent = new Intent(BodySelectionActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                    System.exit(0);
+                }
                 Intent intent = new Intent(BodySelectionActivity.this, CameraActivity.class);
                 startActivity(intent);
                 System.exit(0);
@@ -55,7 +59,12 @@ public class BodySelectionActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_app,menu);
+        if(ParseUser.getCurrentUser() != null) {
+            getMenuInflater().inflate(R.menu.menu_app, menu);
+        }
+        else {
+            getMenuInflater().inflate(R.menu.menu_anamenu, menu);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -78,6 +87,10 @@ public class BodySelectionActivity extends AppCompatActivity {
                         }
                     }
                 });
+                break;
+            case R.id.giris_yap_menu:
+                startActivity(new Intent(this,LoginActivity.class));
+                System.exit(0);
                 break;
         }
         return super.onOptionsItemSelected(item);

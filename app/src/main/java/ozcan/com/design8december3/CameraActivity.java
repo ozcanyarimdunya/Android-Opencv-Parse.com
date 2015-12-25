@@ -102,7 +102,7 @@ public class CameraActivity extends AppCompatActivity {
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),IMAGE_DIRECTORY_NAME);
         if(!mediaStorageDir.exists()){
             if(!mediaStorageDir.mkdirs()){
-                Log.d(IMAGE_DIRECTORY_NAME,"Oops failed create"+IMAGE_DIRECTORY_NAME+" directory");
+                Log.d(IMAGE_DIRECTORY_NAME,"Hata oluştu ."+IMAGE_DIRECTORY_NAME+" directory");
                 return null;
             }
         }
@@ -121,7 +121,7 @@ public class CameraActivity extends AppCompatActivity {
     private void Upload(){
         try {
             if (stream.toByteArray().length==0){
-                Toast.makeText(CameraActivity.this, "Resim boş olamaz !!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CameraActivity.this, "Resim yok !!", Toast.LENGTH_SHORT).show();
             }
             else {
                 String name = ParseUser.getCurrentUser().getUsername();

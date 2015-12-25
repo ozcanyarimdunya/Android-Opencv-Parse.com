@@ -169,8 +169,14 @@ public class ReportActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.kapat){
-            System.exit(0);
+        switch (item.getItemId()){
+            case R.id.kapat:
+                System.exit(0);
+                break;
+            case R.id.help_app:
+                Toast.makeText(ReportActivity.this, "Yüklediğiniz resimlerin analiz edilmiş hali", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReportActivity.this, "Üstteki resim Edge Detection", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReportActivity.this, "Alttaki resim Gray Scale", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

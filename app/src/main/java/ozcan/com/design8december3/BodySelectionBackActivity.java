@@ -22,15 +22,14 @@ public class BodySelectionBackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_selection_back);
 
-        if(ParseUser.getCurrentUser() == null){
-            Intent intent = new Intent(BodySelectionBackActivity.this,LoginActivity.class);
-            startActivity(intent);
-        }
-
-        /****/
         TextView txt = (TextView)findViewById(R.id.txt_hosgeldin);
-        txt.setText("Hoşgeldin "+ParseUser.getCurrentUser().getUsername()+" !");
-        /****/
+
+        if(ParseUser.getCurrentUser() == null){
+            txt.setText("Hoşgeldiniz devam edebilmek için giriş yapın!");
+        }
+        else {
+            txt.setText("Hoşgeldin " + ParseUser.getCurrentUser().getUsername() + " !");
+        }
 
         Button arkaya_gec = (Button) findViewById(R.id.btn_arkaya_gec);
         arkaya_gec.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +44,10 @@ public class BodySelectionBackActivity extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(ParseUser.getCurrentUser() == null){
+                    Intent intent = new Intent(BodySelectionBackActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                }
                 Intent intent = new Intent(BodySelectionBackActivity.this, CameraActivity.class);
                 startActivity(intent);
                 System.exit(0);
@@ -54,7 +57,12 @@ public class BodySelectionBackActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_app,menu);
+        if(ParseUser.getCurrentUser() != null) {
+            getMenuInflater().inflate(R.menu.menu_app, menu);
+        }
+        else {
+            getMenuInflater().inflate(R.menu.menu_anamenu, menu);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -68,16 +76,19 @@ public class BodySelectionBackActivity extends AppCompatActivity {
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if(e == null) {
+                        if (e == null) {
                             Toast.makeText(BodySelectionBackActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(BodySelectionBackActivity.this, LoginActivity.class));
                             System.exit(0);
-                        }
-                        else {
-                            Toast.makeText(BodySelectionBackActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(BodySelectionBackActivity.this, "Çıkış yapılamadı! " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+                break;
+            case R.id.giris_yap_menu:
+                startActivity(new Intent(this,LoginActivity.class));
+                System.exit(0);
                 break;
         }
         return super.onOptionsItemSelected(item);

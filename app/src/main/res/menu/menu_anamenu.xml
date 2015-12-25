@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/kapat"
-        android:title="kapat"
+        android:id="@+id/giris_yap_menu"
+        android:title="Giriş Yap"
         app:showAsAction="always"/>
     <item
-        android:title="@string/help_menu"
-        android:id="@+id/login_help"
-        app:showAsAction="always"
+        android:id="@+id/help_app"
+        android:title="@string/help_app"
+        app:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_help"/>
 </menu>
