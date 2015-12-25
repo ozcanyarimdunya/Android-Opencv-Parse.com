@@ -6,13 +6,14 @@ Eğer proje adından kaynaklanan bir sorun çıkarsa proje adını  ***Design8de
 Proje tasarım süreçleri dersi için yapılmıştır .
 
 ###Mobil ben takip uygulaması
-##### Uygulamanın çalışma şekli #####
+##### Uygulamanın çalışma şekli
+
 
 
 
 ***Yeni kullanıcı ekleme***
  
- * Parse.com da User tablosuna yeni kullanıcı eklenir
+ * Parse.com da `User` tablosuna yeni kullanıcı eklenir
   
 ***Giriş yapma***
   
@@ -24,13 +25,13 @@ Proje tasarım süreçleri dersi için yapılmıştır .
   
 ***Galeriden resim yükleme veya kameradan çekip yükleme***
     
- * Benin resmi Parse.com da image_upload tablosuna kaydedilir
+ * Benin resmi Parse.com da `image_upload` tablosuna kaydedilir
   
 ***Resmi analiz etme (Gray Scale ve Edge Detection)***
   
  * Parse.com dan çekilen resim alınır ve işlenir
   
- * İşlenen resimler de ImageResultAfterOpencv tablosuna kaydedilir
+ * İşlenen resimler de `ImageResultAfterOpencv` tablosuna kaydedilir
 
 
 
