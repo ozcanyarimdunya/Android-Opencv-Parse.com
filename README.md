@@ -2,11 +2,11 @@
 
 Eğer proje adından kaynaklanan bir sorun çıkarsa proje adını  ***Design8december3***  olarak değiştirin ..
 
-#Tasarım süreçleri projesi 
+###Tasarım süreçleri projesi 
 Proje tasarım süreçleri dersi için yapılmıştır .
 
-#Mobil ben takip uygulaması
-Uygulamanın çalışma şekli
+###Mobil ben takip uygulaması
+######Uygulamanın çalışma şekli
 
 
 ***Yeni kullanıcı ekleme***
@@ -33,15 +33,15 @@ Uygulamanın çalışma şekli
 
 
 
-#Android Studio
+###Android Studio
 
 Dowload Page: http://developer.android.com/sdk/index.html
 
-#Parse
+###Parse
 
 Homepage: http://parse.com
 
-#Opencv
+###Opencv
 Resources
 
 Homepage: http://opencv.org
