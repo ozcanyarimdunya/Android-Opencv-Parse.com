@@ -74,7 +74,7 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent open_camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                fileUri = getOutputMediaFileUri(3);
+                fileUri = getOutputMediaFileUri(0);
                 open_camera.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                 startActivityForResult(open_camera, 0);
             }
