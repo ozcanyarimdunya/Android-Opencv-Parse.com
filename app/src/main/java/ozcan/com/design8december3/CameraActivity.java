@@ -1,7 +1,5 @@
 package ozcan.com.design8december3;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -76,7 +74,7 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent open_camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                fileUri = getOutputMediaFileUri(0);
+                fileUri = getOutputMediaFileUri(3);
                 open_camera.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                 startActivityForResult(open_camera, 0);
             }

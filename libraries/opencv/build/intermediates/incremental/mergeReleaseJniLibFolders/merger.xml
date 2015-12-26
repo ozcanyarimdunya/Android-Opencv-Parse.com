@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/l50/Desktop/Design8december3/libraries/opencv/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/home/l50/Desktop/Design8december3/libraries/opencv/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/l50/Desktop/Masaüstü/Design8december3/libraries/opencv/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/home/l50/Desktop/Masaüstü/Design8december3/libraries/opencv/src/release/jniLibs"/></dataSet></merger>
