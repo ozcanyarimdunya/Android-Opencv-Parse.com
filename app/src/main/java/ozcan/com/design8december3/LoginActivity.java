@@ -1,5 +1,6 @@
 package ozcan.com.design8december3;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,11 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
+                dialog.setTitle("Lütfen bekleyin");
+                dialog.setMessage("Giriş yapılıyor...");
+                dialog.show();
                 ///Arka planda girş yap parse.com a
                 ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
                     @Override
@@ -45,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                             ///Giriş yaptıktan sonra bu ekranı kapat
                             ///Zaten artık geri dönme gibi bir durum yok
                             System.exit(0);
+                            dialog.hide();
                         }
                     }
                 });

@@ -1,5 +1,6 @@
 package ozcan.com.design8december3;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -75,13 +76,17 @@ public class BodySelectionActivity extends AppCompatActivity {
                 Toast.makeText(BodySelectionActivity.this, "Help butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.logout_app:
+                final ProgressDialog dialog = new ProgressDialog(BodySelectionActivity.this);
+                dialog.setTitle("Lütfen bekleyiniz");
+                dialog.setMessage("Çıkış yapılıyor");
+                dialog.show();
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            Toast.makeText(BodySelectionActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(BodySelectionActivity.this, LoginActivity.class));
                             System.exit(0);
+                            dialog.hide();
                         } else {
                             Toast.makeText(BodySelectionActivity.this, "Çıkış yapılamadı! " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }

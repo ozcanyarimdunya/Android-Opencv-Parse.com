@@ -1,5 +1,6 @@
 package ozcan.com.design8december3;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -129,14 +130,19 @@ public class CameraActivity extends AppCompatActivity {
                 file.saveInBackground();
                 final ParseObject img_upload = new ParseObject("image_upload");
                 img_upload.put("ImageFile", file);
+                final ProgressDialog dialog = new ProgressDialog(CameraActivity.this);
+                dialog.setTitle("Lütfen bekleyiniz..");
+                dialog.setMessage("Gönderiliyor..");
+                dialog.show();
                 img_upload.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
                             Toast.makeText(getApplicationContext(), "Image uploaded !!", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(CameraActivity.this, ReportActivity.class);
-                            intent.putExtra("resim",img_upload.getObjectId());
+                            intent.putExtra("resim", img_upload.getObjectId());
                             startActivity(intent);
+                            dialog.hide();
                         } else {
                             Toast.makeText(getApplicationContext(), "Failed to upload image " + e.getMessage(), Toast.LENGTH_LONG).show();
                         }
@@ -201,6 +207,10 @@ public class CameraActivity extends AppCompatActivity {
                 break;
             ///Kamera kısmında çıkış yapması mantıksız ama olsun
             case R.id.logout_app:
+                final ProgressDialog dialog = new ProgressDialog(CameraActivity.this);
+                dialog.setTitle("Lütfen bekleyiniz");
+                dialog.setMessage("Çıkış yapılıyor");
+                dialog.show();
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
                     public void done(ParseException e) {
@@ -208,6 +218,7 @@ public class CameraActivity extends AppCompatActivity {
                         if(e == null) {
                             startActivity(new Intent(CameraActivity.this, LoginActivity.class));
                             System.exit(0);
+                            dialog.hide();
                         }
                         else {
                             Toast.makeText(CameraActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
