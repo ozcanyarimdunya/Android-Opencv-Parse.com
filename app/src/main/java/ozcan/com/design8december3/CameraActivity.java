@@ -132,7 +132,7 @@ public class CameraActivity extends AppCompatActivity {
                 img_upload.put("ImageFile", file);
                 final ProgressDialog dialog = new ProgressDialog(CameraActivity.this);
                 dialog.setTitle("Lütfen bekleyiniz..");
-                dialog.setMessage("Gönderiliyor..");
+                dialog.setMessage("Analiz yapılıyor..");
                 dialog.show();
                 img_upload.saveInBackground(new SaveCallback() {
                     @Override

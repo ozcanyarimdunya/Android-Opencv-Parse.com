@@ -1,5 +1,6 @@
 package ozcan.com.design8december3;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,10 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 /// Parse da yeni bir kullanıcı oluştur
                 /// User tablosu
+                final ProgressDialog dialog = new ProgressDialog(RegisterActivity.this);
+                dialog.setTitle("Lütfen bekleyiniz");
+                dialog.setMessage("Kayıt yapılıyor");
+                dialog.show();
                 ParseUser user = new ParseUser();
                 user.setUsername(username.getText().toString());
                 user.setEmail(email.getText().toString());
@@ -40,13 +45,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if ((username.getText() == null) || (email.getText() == null) || (password.getText() == null)) {
                     Toast.makeText(RegisterActivity.this, "Lütfen boş alanları doldurunuz !!", Toast.LENGTH_SHORT).show();
+                    dialog.hide();
                 } else {
                     /// Arka planda parse.com a kayıt yap
                     user.signUpInBackground(new SignUpCallback() {
                         @Override
                         public void done(ParseException e) {
                             if (e != null) {
-                                Toast.makeText(RegisterActivity.this, "Kayıt başarılı değil ! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                dialog.hide();
+                                Toast.makeText(RegisterActivity.this, "Kayıt başarılı değil ! " + e.getMessage(), Toast.LENGTH_LONG).show();
                             } else {
                                 ///Kayıt yaptıktan sonra giriş ekranına dön
                                 ///giriş yapmasını iste
@@ -54,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 /// Bu ekranı kapatabiliriz artık
                                 System.exit(0);
+                                dialog.hide();
                             }
                         }
                     });
