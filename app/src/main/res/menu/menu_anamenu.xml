@@ -9,5 +9,5 @@
         android:id="@+id/help_app"
         android:title="@string/help_app"
         app:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_help"/>
+        android:icon="@android:drawable/ic_dialog_info"/>
 </menu>

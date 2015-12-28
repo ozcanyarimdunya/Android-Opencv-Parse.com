@@ -1,6 +1,8 @@
 package ozcan.com.design8december3;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -81,7 +83,20 @@ public class RegisterActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.login_help:
-                Toast.makeText(RegisterActivity.this, "Burada help bilgi ekranı gelsin", Toast.LENGTH_SHORT).show();
+                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setTitle("\tBen Takip v1.0 Uygulamasına Hoşgeldiniz..");
+                alertDialog.setMessage("\tUygulamaya kaydolmak için;\n" +
+                        "\t*-Size özel bir kullanıcı adı,\n" +
+                        "\t*-Geçerli bir e-posta,\n" +
+                        "\t*-En az 4 karakterli bir şifre belirleyin\n" +
+                        "\tBu işlemleri yaptıktan sonra KAYDOL'a basınız .");
+                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertDialog.show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -93,4 +108,5 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginActivity.class));
         System.exit(0);
     }
+
 }

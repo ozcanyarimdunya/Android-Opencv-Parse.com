@@ -32,7 +32,7 @@
         <activity android:name=".CameraActivity"
             android:label="Resim Seçin"/>
         <activity android:name=".BodySelectionBackActivity"
-            android:label="Hoşgeldiniz"/>
+            android:label="Ben Takip Uygulaması"/>
         <activity android:name=".ReportActivity"
             android:label="Analiz Sonuçları"/>
     </application>

@@ -1,6 +1,8 @@
 package ozcan.com.design8december3;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -138,7 +140,6 @@ public class CameraActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            Toast.makeText(getApplicationContext(), "Image uploaded !!", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(CameraActivity.this, ReportActivity.class);
                             intent.putExtra("resim", img_upload.getObjectId());
                             startActivity(intent);
@@ -203,7 +204,19 @@ public class CameraActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.help_app:
-                Toast.makeText(CameraActivity.this, "Help butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
+                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setTitle("\tBen Takip v1.0 Uygulamasına Hoşgeldiniz..");
+                alertDialog.setMessage("\tBenin vucütta bulunduğu yerin\n" +
+                        "\tresmini çekmek için KAMERAYI AÇ'a basın veya\n" +
+                        "\tbenin daha önce çekilmiş resmi için GALERİDEN SEÇ'e basın\n\n" +
+                        "\tİşlem tamamlandıktan sonra ANALİZ İÇİN GÖNDER'e basın .");
+                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertDialog.show();
                 break;
             ///Kamera kısmında çıkış yapması mantıksız ama olsun
             case R.id.logout_app:
@@ -236,4 +249,5 @@ public class CameraActivity extends AppCompatActivity {
         startActivity(new Intent(this, BodySelectionActivity.class));
         System.exit(0);
     }
+
 }

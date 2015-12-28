@@ -1,6 +1,8 @@
 package ozcan.com.design8december3;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +28,8 @@ public class BodySelectionBackActivity extends AppCompatActivity {
         TextView txt = (TextView)findViewById(R.id.txt_hosgeldin);
 
         if(ParseUser.getCurrentUser() == null){
-            txt.setText("Hoşgeldiniz .. Devam edebilmek için lütfen giriş yapın!");
+            startActivity(new Intent(BodySelectionBackActivity.this,LoginActivity.class));
+            System.exit(0);
         }
         else {
             txt.setText("Hoşgeldin " + ParseUser.getCurrentUser().getUsername() + " !");
@@ -46,12 +49,13 @@ public class BodySelectionBackActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(ParseUser.getCurrentUser() == null){
-                    Intent intent = new Intent(BodySelectionBackActivity.this,LoginActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(BodySelectionBackActivity.this,LoginActivity.class));
+                    System.exit(0);
                 }
-                Intent intent = new Intent(BodySelectionBackActivity.this, CameraActivity.class);
-                startActivity(intent);
-                System.exit(0);
+                else {
+                    startActivity(new Intent(BodySelectionBackActivity.this, CameraActivity.class));
+                    System.exit(0);
+                }
             }
         });
     }
@@ -70,8 +74,19 @@ public class BodySelectionBackActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.login_help:
-                Toast.makeText(BodySelectionBackActivity.this, "Help butonu sonra yapılacaktır", Toast.LENGTH_SHORT).show();
+            case R.id.help_app:
+                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setTitle("\tBen Takip v1.0 Uygulamasına Hoşgeldiniz..");
+                alertDialog.setMessage("\tAnalizi daha sağlıklı yapabilmemiz için\n" +
+                        "\tBenin vucutta bulunduğu yeri şekildeki\n" +
+                        "\tvücut arayüzünden bulup, tıklayın .");
+                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertDialog.show();
                 break;
             case R.id.logout_app:
                 final ProgressDialog dialog = new ProgressDialog(BodySelectionBackActivity.this);
@@ -99,10 +114,4 @@ public class BodySelectionBackActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(this, BodySelectionActivity.class));
-        System.exit(0);
-    }
 }

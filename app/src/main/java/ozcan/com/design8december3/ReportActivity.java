@@ -1,5 +1,7 @@
 package ozcan.com.design8december3;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,6 +32,8 @@ import org.opencv.imgproc.Imgproc;
 
 import java.io.ByteArrayOutputStream;
 
+import javax.xml.validation.TypeInfoProvider;
+
 public class ReportActivity extends AppCompatActivity {
 
     private Bitmap  bitmap;
@@ -43,7 +47,7 @@ public class ReportActivity extends AppCompatActivity {
         public void onManagerConnected(int status) {
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS:
-                    Toast.makeText(ReportActivity.this, "Opencv yüklemesi başarılı !!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ReportActivity.this, "Opencv yüklemesi başarılı !!", Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     super.onManagerConnected(status);
@@ -152,7 +156,7 @@ public class ReportActivity extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    Toast.makeText(ReportActivity.this, "İşlenen resim kaydedildi ", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ReportActivity.this, "İşlenen resim kaydedildi ", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(ReportActivity.this, "İşlenen resmin yüklenmesinde hata oluştu " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -173,10 +177,19 @@ public class ReportActivity extends AppCompatActivity {
             case R.id.kapat:
                 System.exit(0);
                 break;
-            case R.id.help_app:
-                Toast.makeText(ReportActivity.this, "Yüklediğiniz resimlerin analiz edilmiş hali", Toast.LENGTH_SHORT).show();
-                Toast.makeText(ReportActivity.this, "Üstteki resim Edge Detection", Toast.LENGTH_SHORT).show();
-                Toast.makeText(ReportActivity.this, "Alttaki resim Gray Scale", Toast.LENGTH_SHORT).show();
+            case R.id.login_help:
+                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setTitle("\tYüklediğiniz resimlerin analiz edilmiş hali");
+                alertDialog.setMessage("\t-*- Üstteki resim Edge Detection -*-\n" +
+                                       "\t-*- Alttaki resim Gray Scale     -*-\n");
+                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertDialog.show();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -186,4 +199,5 @@ public class ReportActivity extends AppCompatActivity {
         super.onBackPressed();
         startActivity(new Intent(this, CameraActivity.class));
     }
+
 }
