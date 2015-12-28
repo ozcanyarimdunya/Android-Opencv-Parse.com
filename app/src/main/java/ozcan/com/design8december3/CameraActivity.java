@@ -146,6 +146,7 @@ public class CameraActivity extends AppCompatActivity {
                             dialog.hide();
                         } else {
                             Toast.makeText(getApplicationContext(), "Failed to upload image " + e.getMessage(), Toast.LENGTH_LONG).show();
+                            dialog.hide();
                         }
                     }
                 });
@@ -205,12 +206,13 @@ public class CameraActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.help_app:
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setIcon(R.drawable.info_icon);
                 alertDialog.setTitle("\tBen Takip v1.0 Uygulamasına Hoşgeldiniz..");
-                alertDialog.setMessage("\tBenin vucütta bulunduğu yerin\n" +
-                        "\tresmini çekmek için KAMERAYI AÇ'a basın veya\n" +
-                        "\tbenin daha önce çekilmiş resmi için GALERİDEN SEÇ'e basın\n\n" +
-                        "\tİşlem tamamlandıktan sonra ANALİZ İÇİN GÖNDER'e basın .");
-                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                alertDialog.setMessage("Benin vücutta bulunduğu yerin" +
+                        " resmini çekmek için \nKAMERAYI AÇ'a basın veya" +
+                        " benin daha önce çekilmiş resmi için GALERİDEN SEÇ'e basın\n\n" +
+                        "Resim ekranda göründükten sonra ANALİZ İÇİN GÖNDER'e basın .");
+                alertDialog.setButton("TAMAM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -235,6 +237,7 @@ public class CameraActivity extends AppCompatActivity {
                         }
                         else {
                             Toast.makeText(CameraActivity.this, "Çıkış yapılamadı! "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            dialog.hide();
                         }
                     }
                 });

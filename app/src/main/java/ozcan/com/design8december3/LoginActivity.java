@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                         /// eğer bir hata varsa
                         if (e != null) {
                             Toast.makeText(LoginActivity.this, "Kullanıcı adı veya şifre yanlış" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            dialog.hide();
                         } else {
                             Intent intent = new Intent(LoginActivity.this, BodySelectionActivity.class);
                             startActivity(intent);
@@ -87,12 +88,13 @@ public class LoginActivity extends AppCompatActivity {
 
             if(item.getItemId()==R.id.login_help) {
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setIcon(R.drawable.info_icon);
                 alertDialog.setTitle("\tBen Takip v1.0 Uygulamasına Hoşgeldiniz..");
                 alertDialog.setMessage("\tBen analizi yapabilmek için kayıt olmanız gerekmektedir.\n" +
                         "\tKaydolmak için KAYDOL'a basınız\n\n" +
                         "\tEğer kayıtlı bir kullanıcıysanız,\n" +
                         "\tKullanıcı adı ve şifrenizi girerek GİRİŞ YAP'a basınız..\n");
-                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                alertDialog.setButton("TAMAM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

@@ -84,13 +84,14 @@ public class RegisterActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.login_help:
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setIcon(R.drawable.info_icon);
                 alertDialog.setTitle("\tBen Takip v1.0 Uygulamasına Hoşgeldiniz..");
                 alertDialog.setMessage("\tUygulamaya kaydolmak için;\n" +
                         "\t*-Size özel bir kullanıcı adı,\n" +
                         "\t*-Geçerli bir e-posta,\n" +
                         "\t*-En az 4 karakterli bir şifre belirleyin\n" +
                         "\tBu işlemleri yaptıktan sonra KAYDOL'a basınız .");
-                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                alertDialog.setButton("TAMAM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

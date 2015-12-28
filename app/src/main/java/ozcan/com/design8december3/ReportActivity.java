@@ -179,10 +179,11 @@ public class ReportActivity extends AppCompatActivity {
                 break;
             case R.id.login_help:
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setIcon(R.drawable.info_icon);
                 alertDialog.setTitle("\tYüklediğiniz resimlerin analiz edilmiş hali");
-                alertDialog.setMessage("\t-*- Üstteki resim Edge Detection -*-\n" +
-                                       "\t-*- Alttaki resim Gray Scale     -*-\n");
-                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                alertDialog.setMessage("\t-*- Üstteki resim Edge Detection \n" +
+                                       "\t-*- Alttaki resim Gray Scale     \n");
+                alertDialog.setButton("TAMAM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

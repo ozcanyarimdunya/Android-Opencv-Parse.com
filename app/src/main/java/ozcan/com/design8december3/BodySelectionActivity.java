@@ -77,11 +77,12 @@ public class BodySelectionActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.help_app:
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setIcon(R.drawable.info_icon);
                 alertDialog.setTitle("\tBen Takip v1.0 Uygulamasına Hoşgeldiniz..");
-                alertDialog.setMessage("\tAnalizi daha sağlıklı yapabilmemiz için\n" +
-                        "\tBenin vucutta bulunduğu yeri şekildeki\n" +
-                        "\tvücut arayüzünden bulup, tıklayın .");
-                alertDialog.setButton("Tamam", new DialogInterface.OnClickListener() {
+                alertDialog.setMessage("Analizi daha sağlıklı yapabilmemiz için " +
+                        "benin vücutta bulunduğu yeri şekildeki" +
+                        " vücut arayüzünden bulup, tıklayın .");
+                alertDialog.setButton("TAMAM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -103,6 +104,7 @@ public class BodySelectionActivity extends AppCompatActivity {
                             dialog.hide();
                         } else {
                             Toast.makeText(BodySelectionActivity.this, "Çıkış yapılamadı! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            dialog.hide();
                         }
                     }
                 });
