@@ -32,9 +32,10 @@ Proje tasarım süreçleri dersi için yapılmıştır .
 
 
 
+
 ###Android Studio
 
-Dowload Page: http://developer.android.com/sdk/index.html
+Download Page: http://developer.android.com/sdk/index.html
 
 ###Parse
 
