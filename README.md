@@ -1,5 +1,5 @@
 #Mobil ben takip uygulaması
-Bu uygulama tasarım süreçleri dersi için yapılmıştır..
+Bu uygulama Tasarım Süreçleri dersi projesi için yapılmıştır..
 
 ---------------------
 
