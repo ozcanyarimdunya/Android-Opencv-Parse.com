@@ -3,29 +3,29 @@ Bu uygulama tasarım süreçleri dersi için yapılmıştır..
 
 ---------------------
 
-##### Uygulamanın çalışma şekli
+### Uygulamanın çalışma şekli
 
-| Yeni kullanıcı ekleme
+| 1 - Yeni kullanıcı ekleme
 ------
 
  * Parse.com da `User` tablosuna yeni kullanıcı eklenir
   
-| Giriş yapma
+| 2 - Giriş yapma
 ------
   
  * Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
 
-| Ana Menü
+| 3 - Ana Menü
 --------
     
  * Benin vucutta bulunduğu kısım seçilir
   
-| Galeriden resim yükleme veya kameradan çekip yükleme
+| 4 - Galeriden resim yükleme veya kameradan çekip yükleme
 --------
     
  * Benin resmi Parse.com da `image_upload` tablosuna kaydedilir
   
-| Resmi analiz etme (Gray Scale ve Edge Detection)
+| 5 - Resmi analiz etme (Gray Scale ve Edge Detection)
 --------
   
  * Parse.com dan çekilen resim alınır ve işlenir
@@ -36,13 +36,13 @@ Bu uygulama tasarım süreçleri dersi için yapılmıştır..
 
 #### Kullanılan araçlar
 
-| [Android Studio](http://developer.android.com/sdk/index.html)
+| 1 - [Android Studio](http://developer.android.com/sdk/index.html)
 ------------
 
-| [Parse.com](http://parse.com)
+| 2 - [Parse.com](http://parse.com)
 ------------
 
-| [Opencv](http://opencv.org)
+| 3 - [Opencv](http://opencv.org)
 -----------
 
 --------------------
