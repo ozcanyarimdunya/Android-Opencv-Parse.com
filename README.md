@@ -36,13 +36,13 @@ Bu uygulama tasarım süreçleri dersi için yapılmıştır..
 
 #### Kullanılan araçlar
 
-| 1 - [Android Studio](http://developer.android.com/sdk/index.html)
+| 1. [Android Studio](http://developer.android.com/sdk/index.html)
 ------------
 
-| 2 - [Parse.com](http://parse.com)
+| 2. [Parse.com](http://parse.com)
 ------------
 
-| 3 - [Opencv](http://opencv.org)
+| 3. [Opencv](http://opencv.org)
 -----------
 
 --------------------
