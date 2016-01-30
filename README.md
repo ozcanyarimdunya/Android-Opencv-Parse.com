@@ -18,7 +18,7 @@ Parse.com dan kullanıcı adı ve şifresi çekilip anamenüye yönlendirilir
 -
 | 3 - [Ana Menü](app/src/main/java/ozcan/com/design8december3/BodySelectionActivity.java)
 --------
-Benin vucutta bulunduğu kısım seçilir
+Benin vücutta bulunduğu kısım seçilir
 
 -
 | 4 - [Galeriden resim yükleme veya kameradan çekip yükleme](app/src/main/java/ozcan/com/design8december3/CameraActivity.java)
@@ -26,6 +26,7 @@ Benin vucutta bulunduğu kısım seçilir
 Benin resmi Parse.com da `image_upload` tablosuna kaydedilir
 
 -  
+
 | 5 - [Resmi analiz etme (Gray Scale ve Edge Detection)](app/src/main/java/ozcan/com/design8december3/ReportActivity.java)
 --------
 Parse.com dan çekilen resim alınır ve işlenir
