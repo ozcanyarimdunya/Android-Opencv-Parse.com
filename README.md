@@ -5,6 +5,8 @@ Bu uygulama Tasarım Süreçleri dersi projesi için yapılmıştır..
 
 ### Uygulamanın çalışma şekli
 
+-
+
 | 1 - [Yeni kullanıcı ekleme](app/src/main/java/ozcan/com/design8december3/RegisterActivity.java)
 ------
 Parse.com da `User` tablosuna yeni kullanıcı eklenir
